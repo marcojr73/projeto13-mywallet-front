@@ -1,15 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Container from './Container';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 export default function LogIn(){
+
+    const [ email, setEmail ] = useState("")
+    const [ password, setPassword ] = useState("")
+    const url = "http://localhost:5000/log-in"
+    const navigate = useNavigate()
+
+    function logInUser(e){
+        e.preventDefault()
+
+        const data = {
+            email,
+            password
+        }
+        
+        const promisse = axios.post(url, data)
+        promisse.then(response => {
+            navigate("/home")
+        })
+        promisse.catch(e => {
+            alert(e.response.data)
+            console.log(e)
+        })
+    }
     return(
         <Container>
             <h1> MyWallet </h1>
-            <form>
-                <input placeholder="E-mail"></input>
-                <input placeholder="Senha"></input>
-                <button>Entrar</button>
+            <form onSubmit={logInUser}>
+
+                <input  type="email" 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="E-mail"
+                ></input>
+
+                <input  type="password" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Senha"
+                ></input>
+
+                <button type="submit">Entrar</button>
                 <Link to="/sig-in">Primeira vez? Cadastre-se!</Link>
             </form>
         </Container>
