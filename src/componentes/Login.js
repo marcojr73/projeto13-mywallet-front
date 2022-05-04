@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Container from './Container';
 
 export default function LogIn(){
@@ -9,7 +10,7 @@ export default function LogIn(){
                 <input placeholder="E-mail"></input>
                 <input placeholder="Senha"></input>
                 <button>Entrar</button>
-                <h2>Primeira vez? Cadastre-se!</h2>
+                <Link to="/sig-in">Primeira vez? Cadastre-se!</Link>
             </form>
         </Container>
     )

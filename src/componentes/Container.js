@@ -40,11 +40,12 @@ const Container = styled.div`
         font-size: 20px;  
         color: #000000;
     }
-    h2{
+    a{
         font-weight: 700;
         font-size: 15px;
         color: #FFFFFF;
         margin-top: 23px;
+        text-decoration: none;
     }
 `
 
