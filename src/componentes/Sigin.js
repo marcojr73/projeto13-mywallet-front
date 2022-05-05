@@ -32,14 +32,13 @@ export default function SigIn(){
 
             const promisse = axios.post(url, data)
             promisse.then (response => {
+                console.log(response.data)
                 navigate("/")
             })        
             promisse.catch(e => {
                 alert(e.response.data)
                 console.log(e)
             })
-
-            console.log(data)
         }
     }
 
@@ -48,14 +47,14 @@ export default function SigIn(){
             <h1> MyWallet </h1>
             <form onSubmit={sigInUser}>
                 <input  type="text" 
-                        required
+                        // required
                         placeholder="Nome"
                         onChange={(e) => setName(e.target.value)}
                         value={name}
                 ></input>
 
-                <input  type="email" 
-                        required
+                <input  type="text" 
+                        // required
                         placeholder="E-mail"
                         onChange={(e) => setEmail(e.target.value)}        
                         value={email}
@@ -75,7 +74,7 @@ export default function SigIn(){
                         value={confirm}
                 ></input>
 
-                <button type="submit">Entrar</button>
+                <button type="submit">Cadastrar</button>
                 <Link to="/">Já tem uma conta? Entre agora!</Link>
             </form>
         </Container>

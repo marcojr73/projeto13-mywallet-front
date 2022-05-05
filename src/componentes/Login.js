@@ -33,7 +33,7 @@ export default function LogIn(){
             <h1> MyWallet </h1>
             <form onSubmit={logInUser}>
 
-                <input  type="email" 
+                <input  type="text" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="E-mail"
