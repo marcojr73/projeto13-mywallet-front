@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useContext } from "react"
+import DataContext from './context/context';
 import { Link } from 'react-router-dom';
 import Container from './Container';
 import axios from 'axios';
@@ -11,6 +13,9 @@ export default function LogIn(){
     const url = "http://localhost:5000/log-in"
     const navigate = useNavigate()
 
+    const token = useContext(DataContext);
+
+
     function logInUser(e){
         e.preventDefault()
 
@@ -21,6 +26,7 @@ export default function LogIn(){
         
         const promisse = axios.post(url, data)
         promisse.then(response => {
+            token.setToken(response.data)
             navigate("/home")
         })
         promisse.catch(e => {

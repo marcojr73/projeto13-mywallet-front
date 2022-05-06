@@ -1,11 +1,19 @@
+import { useContext } from "react"
+import { Link } from "react-router-dom";
+import DataContext from './context/context';
 
 import styled from "styled-components"
+import Historic from "./Historic";
 
 import exit from "../assets/exit.png"
 import plus from "../assets/plus.png"
 import sub from "../assets/sub.png"
 
 export default function Home(){
+
+    const token = useContext(DataContext).token;
+    console.log(token)
+
     return(
         <Container>
             <header>
@@ -13,21 +21,25 @@ export default function Home(){
                 <img src={exit}></img>
             </header>
             <main>
-                <h2>Não há registros de entrada ou saída</h2>
+                <Historic/>
             </main>
             <footer>
-                <div className="put">
-                    <img className="icon" src={plus} />
-                    <div className="aux">
-                        <p>Nova entrada</p>
+                <Link to="/input">
+                    <div className="put">
+                        <img className="icon" src={plus} />
+                        <div className="aux">
+                            <p>Nova entrada</p>
+                        </div>
                     </div>
-                </div>
-                <div className="put">
-                    <img className="icon" src={sub} />
-                    <div className="aux">
-                        <p>Nova saída</p>
+                </Link>
+                <Link to="/output">
+                    <div className="put">
+                        <img className="icon" src={sub} />
+                        <div className="aux">
+                            <p>Nova saída</p>
+                        </div>
                     </div>
-                </div>
+                </Link>
             </footer>
         </Container>
     )
