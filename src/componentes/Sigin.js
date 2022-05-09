@@ -26,13 +26,11 @@ export default function SigIn(){
             const data = {
                 name,
                 email,
-                password,
-                confirm
+                password
             }
 
             const promisse = axios.post(url, data)
             promisse.then (response => {
-                console.log(response.data)
                 navigate("/")
             })        
             promisse.catch(e => {
@@ -47,14 +45,14 @@ export default function SigIn(){
             <h1> MyWallet </h1>
             <form onSubmit={sigInUser}>
                 <input  type="text" 
-                        // required
+                        required
                         placeholder="Nome"
                         onChange={(e) => setName(e.target.value)}
                         value={name}
                 ></input>
 
                 <input  type="text" 
-                        // required
+                        required
                         placeholder="E-mail"
                         onChange={(e) => setEmail(e.target.value)}        
                         value={email}

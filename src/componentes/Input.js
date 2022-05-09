@@ -1,17 +1,18 @@
 import { useState } from "react/cjs/react.development"
-import { useContext } from "react"
-import DataContext from "./context/context"
 import ContainerTrading from "./ContainerTrading"
 import axios from "axios"
+import { useNavigate } from "react-router"
 
 export default function Input() {
 
     const [valueTrading, setValueTrading] = useState("")
     const [description, setDescription] = useState("")
     const url = "http://localhost:5000/trading"
-    const token = useContext(DataContext).token;
+    const token = JSON.parse(localStorage.getItem("token"))
+    const navigate = useNavigate()
 
-    
+
+
     function trading(e) {
 
         e.preventDefault()
@@ -32,6 +33,7 @@ export default function Input() {
         const promisse = axios.post(url, data, config)
         promisse.then(response => {
             console.log(response.data)
+            navigate("/home")
             setDescription("")
             setValueTrading("")
         })

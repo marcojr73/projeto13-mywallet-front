@@ -11,14 +11,15 @@ import sub from "../assets/sub.png"
 
 export default function Home(){
 
-    const token = useContext(DataContext).token;
-    console.log(token)
+    const {name, setToken} = useContext(DataContext)
 
     return(
         <Container>
             <header>
-                <h1>olá, fulano</h1> 
-                <img src={exit}></img>
+                <h1>Olá {name}</h1> 
+                <Link to= "/" >
+                <img onClick={() => setToken("") } src={exit}></img>
+                </Link>
             </header>
             <main>
                 <Historic/>
@@ -48,7 +49,6 @@ export default function Home(){
 const Container = styled.header`
     width: 326px;
     margin: auto;
-    /* background: red; */
 
     header{
         margin-top: 25px;
@@ -68,6 +68,7 @@ const Container = styled.header`
         background: #FFFFFF;
         margin-top: 22px;
         border-radius: 5px;
+        position: relative;
     }
     h2{
         display: flex;

@@ -14,9 +14,10 @@ import Output from "./Output";
 export default function App(){
 
     const [ token, setToken ] = useState("")
+    const [ name, setName ] = useState("")
 
     return(
-        <DataContext.Provider  value={{token, setToken}}>
+        <DataContext.Provider  value={{token, setToken, name, setName}}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<LogIn/>} > </Route>

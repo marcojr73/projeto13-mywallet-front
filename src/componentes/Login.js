@@ -14,6 +14,7 @@ export default function LogIn(){
     const navigate = useNavigate()
 
     const token = useContext(DataContext);
+    const name = useContext(DataContext)
 
 
     function logInUser(e){
@@ -26,7 +27,12 @@ export default function LogIn(){
         
         const promisse = axios.post(url, data)
         promisse.then(response => {
-            token.setToken(response.data)
+
+            const locals = JSON.stringify(response.data.token)
+            localStorage.setItem("token", locals)
+
+            name.setName(response.data.name)
+            token.setToken(response.data.token)
             navigate("/home")
         })
         promisse.catch(e => {
