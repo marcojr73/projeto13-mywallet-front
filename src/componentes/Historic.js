@@ -1,15 +1,13 @@
 import axios from "axios"
-import { useContext, useEffect } from "react"
+import { useEffect } from "react"
 import { useState } from "react/cjs/react.development";
-import DataContext from './context/context';
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 
 
 export default function Historic() {
     
-    const urlPost = "http://localhost:5000/historic"
+    const urlPost = "https://back-my-wallet73.herokuapp.com/historic"
 
     const token = JSON.parse(localStorage.getItem("token"))
     
@@ -35,7 +33,7 @@ export default function Historic() {
 
     function remvoveTrading(id) {
         if(window.confirm("Deseja realmente excluir a operação?")){
-            const promisse = axios.delete(`http://localhost:5000/delete:${id}`, config)
+            const promisse = axios.delete(`https://back-my-wallet73.herokuapp.com/delete:${id}`, config)
             promisse.then(response => {
                 const promisse = axios.get(urlPost, config)
                 promisse.then(response => {

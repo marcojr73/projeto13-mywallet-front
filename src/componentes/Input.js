@@ -7,7 +7,7 @@ export default function Input() {
 
     const [valueTrading, setValueTrading] = useState("")
     const [description, setDescription] = useState("")
-    const url = "http://localhost:5000/trading"
+    const url = "https://back-my-wallet73.herokuapp.com/trading"
     const token = JSON.parse(localStorage.getItem("token"))
     const navigate = useNavigate()
 

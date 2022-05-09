@@ -11,11 +11,11 @@ export default function SigIn(){
     const [ password, setPassword ] = useState("")
     const [ confirm, setConfirm ] = useState("")
     const navigate = useNavigate()
-    const url = "http://localhost:5000/sig-in"
+    const url = "https://back-my-wallet73.herokuapp.com/sig-in"
 
     async function sigInUser(e){
         e.preventDefault()
-        if(false){
+        if(password !== confirm){
             alert("As senhas digitadas não correspondem")
             setEmail("")
             setName("")

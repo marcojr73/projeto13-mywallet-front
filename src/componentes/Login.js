@@ -10,7 +10,7 @@ export default function LogIn(){
 
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
-    const url = "http://localhost:5000/log-in"
+    const url = "https://back-my-wallet73.herokuapp.com/log-in"
     const navigate = useNavigate()
 
     const token = useContext(DataContext);
