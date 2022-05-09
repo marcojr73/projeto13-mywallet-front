@@ -35,7 +35,7 @@ const Container = styled.div`
     input{
         height: 58px;
     }
-    input::placeholder{
+    input::placeholder, input{
         padding: 15px;
         font-size: 20px;  
         color: #000000;

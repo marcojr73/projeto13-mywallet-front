@@ -23,6 +23,10 @@ const ContainerTrading = styled.div`
         border-radius: 5px;
         height: 58px;
         margin-bottom: 13px;
+        font-family: Raleway;
+        font-size: 20px;
+        font-weight: 400;
+        color: black;
     }
 
     input::placeholder{
