@@ -10,7 +10,7 @@ export default function LogIn(){
 
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
-    const url = `${process.env.REACT_APP_API_BASE_URL}/log-in`
+    const url = `${process.env.REACT_APP_API_BASE_URL}/sign-in`
     const navigate = useNavigate()
 
     const token = useContext(DataContext);

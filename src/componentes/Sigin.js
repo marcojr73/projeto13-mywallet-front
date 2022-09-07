@@ -12,7 +12,7 @@ export default function SigIn(){
     const [ password, setPassword ] = useState("")
     const [ confirm, setConfirm ] = useState("")
     const navigate = useNavigate()
-    const url = `${process.env.REACT_APP_API_BASE_URL}/sig-in`
+    const url = `${process.env.REACT_APP_API_BASE_URL}/sign-up`
 
     async function sigInUser(e){
         e.preventDefault()
