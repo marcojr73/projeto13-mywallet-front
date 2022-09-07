@@ -7,7 +7,7 @@ export default function Output(){
 
     const [ valueTrading, setValueTrading ] = useState("")
     const [ description, setDescription ] = useState("")
-    const url = "https://back-my-wallet73.herokuapp.com/trading"
+    const url = `${process.env.REACT_APP_API_BASE_URL}/trading`
     const token = JSON.parse(localStorage.getItem("token"))
     const navigate = useNavigate()
 

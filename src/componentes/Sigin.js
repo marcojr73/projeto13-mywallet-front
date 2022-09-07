@@ -3,15 +3,16 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router"
 import Container from "./Container"
 import axios from "axios"
+import dotenv from "dotenv"
 
 export default function SigIn(){
-
+    dotenv.config()
     const [ name, setName ] = useState("")
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
     const [ confirm, setConfirm ] = useState("")
     const navigate = useNavigate()
-    const url = "https://back-my-wallet73.herokuapp.com/sig-in"
+    const url = `${process.env.REACT_APP_API_BASE_URL}/sig-in`
 
     async function sigInUser(e){
         e.preventDefault()

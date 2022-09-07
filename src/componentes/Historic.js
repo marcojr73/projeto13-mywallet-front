@@ -2,12 +2,12 @@ import axios from "axios"
 import { useEffect } from "react"
 import { useState } from "react/cjs/react.development";
 import styled from "styled-components";
-
+import dotenv from "dotenv"
 
 
 export default function Historic() {
     
-    const urlPost = "https://back-my-wallet73.herokuapp.com/historic"
+    const urlPost = `${process.env.REACT_APP_API_BASE_URL}/historic`
 
     const token = JSON.parse(localStorage.getItem("token"))
     
