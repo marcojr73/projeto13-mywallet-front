@@ -2,17 +2,16 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router"
 import Container from "./Container"
-import axios from "axios"
 import dotenv from "dotenv"
+import axiosInstance from "../instances/api"
 
-export default function SigIn(){
+export default function SignUp(){
     dotenv.config()
     const [ name, setName ] = useState("")
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
     const [ confirm, setConfirm ] = useState("")
     const navigate = useNavigate()
-    const url = `${process.env.REACT_APP_API_BASE_URL}/sign-up`
 
     async function sigInUser(e){
         e.preventDefault()
@@ -30,7 +29,7 @@ export default function SigIn(){
                 password
             }
 
-            const promisse = axios.post(url, data)
+            const promisse = axiosInstance.post('/sign-up', data)
             promisse.then (response => {
                 navigate("/")
             })        

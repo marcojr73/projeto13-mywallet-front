@@ -5,11 +5,11 @@ import "../assets/reset.css"
 import "../assets/style.css"
 
 import DataContext from "./context/context";
-import LogIn from "./Login";
-import SigIn from "./Sigin";
 import Home from "./Home";
 import Input from "./Input";
 import Output from "./Output";
+import SignUp from "./SignUp";
+import SignIn from "./SignIn";
 
 export default function App(){
 
@@ -20,8 +20,8 @@ export default function App(){
         <DataContext.Provider  value={{token, setToken, name, setName}}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<LogIn/>} > </Route>
-                    <Route path="/sig-in"element={<SigIn/>} > </Route>
+                    <Route path="/" element={<SignIn/>} > </Route>
+                    <Route path="/sign-up"element={<SignUp/>} > </Route>
                     <Route path="/home" element={<Home/>} > </Route>
                     <Route path="/input" element={<Input/>} > </Route>
                     <Route path="/output" element={<Output/>} > </Route>

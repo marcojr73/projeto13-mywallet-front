@@ -1,22 +1,20 @@
 import { useState } from "react/cjs/react.development"
 import ContainerTrading from "./ContainerTrading"
-import axios from "axios"
 import { useNavigate } from "react-router"
+import axiosInstance from "../instances/api"
 
 export default function Input() {
 
     const [valueTrading, setValueTrading] = useState("")
     const [description, setDescription] = useState("")
-    const url = `${process.env.REACT_APP_API_BASE_URL}/trading`
+    const url = '/trading'
     const token = JSON.parse(localStorage.getItem("token"))
     const navigate = useNavigate()
 
 
 
     function trading(e) {
-
         e.preventDefault()
-        
 
         const config = {
             headers: {
@@ -30,7 +28,7 @@ export default function Input() {
             type: "input"
         }
 
-        const promisse = axios.post(url, data, config)
+        const promisse = axiosInstance.post(url, data, config)
         promisse.then(response => {
             console.log(response.data)
             navigate("/home")

@@ -3,14 +3,13 @@ import { useContext } from "react"
 import DataContext from './context/context';
 import { Link } from 'react-router-dom';
 import Container from './Container';
-import axios from 'axios';
 import { useNavigate } from 'react-router';
+import axiosInstance from '../instances/api';
 
-export default function LogIn(){
+export default function SignIn(){
 
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
-    const url = `${process.env.REACT_APP_API_BASE_URL}/sign-in`
     const navigate = useNavigate()
 
     const token = useContext(DataContext);
@@ -24,7 +23,7 @@ export default function LogIn(){
             password
         }
         
-        const promisse = axios.post(url, data)
+        const promisse = axiosInstance.post('/sign-in', data)
         promisse.then(response => {
 
             const locals = JSON.stringify(response.data.token)
@@ -35,15 +34,14 @@ export default function LogIn(){
             navigate("/home")
         })
         promisse.catch(e => {
-            alert(e.response.data)
             console.log(e)
+            alert(e.response.data)
         })
     }
     return(
         <Container>
             <h1> MyWallet </h1>
             <form onSubmit={logInUser}>
-
                 <input  type="text" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -57,7 +55,7 @@ export default function LogIn(){
                 ></input>
 
                 <button type="submit">Entrar</button>
-                <Link to="/sig-in">Primeira vez? Cadastre-se!</Link>
+                <Link to="/sign-up">Primeira vez? Cadastre-se!</Link>
             </form>
         </Container>
     )
