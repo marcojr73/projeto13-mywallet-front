@@ -1,7 +1,7 @@
-import { useState } from "react/cjs/react.development"
 import ContainerTrading from "./ContainerTrading"
 import { useNavigate } from "react-router"
 import axiosInstance from "../instances/api"
+import { useState } from "react"
 
 export default function Input() {
 

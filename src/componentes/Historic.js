@@ -1,5 +1,4 @@
-import { useEffect } from "react"
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react"
 import styled from "styled-components";
 import axiosInstance from "../instances/api";
 
@@ -32,7 +31,7 @@ export default function Historic() {
 
     function remvoveTrading(id) {
         if(window.confirm("Deseja realmente excluir a operação?")){
-            const promisse = axiosInstance.delete(`${urlPost}/delete:${id}`, config)
+            const promisse = axiosInstance.delete(`/delete:${id}`, config)
             promisse.then(response => {
                 const promisse = axiosInstance.get(urlPost, config)
                 promisse.then(response => {
